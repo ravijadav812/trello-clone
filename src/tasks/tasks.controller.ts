@@ -14,9 +14,9 @@ import { TasksService } from './tasks.service';
 @Controller('tasks')
 export class TasksController {
   constructor(private readonly service: TasksService) {}
-  @Get()
-  async index() {
-    return await this.service.findAll();
+  @Get(':id')
+  async index(@Param('id') id: string) {
+    return await this.service.findAll(id);
   }
 
   @Get(':id')

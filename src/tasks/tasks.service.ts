@@ -11,8 +11,8 @@ export class TasksService {
     @InjectModel(Tasks.name) private readonly model: Model<TasksDocument>,
   ) {}
 
-  async findAll(): Promise<Tasks[]> {
-    return await this.model.find().exec();
+  async findAll(id: string): Promise<Tasks[]> {
+    return await this.model.find({ stageId: id }).exec();
   }
 
   async findOne(id: string): Promise<Tasks> {

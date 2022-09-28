@@ -16,7 +16,9 @@ export class StageController {
   constructor(private readonly service: StageService) {}
   @Get()
   async index() {
-    return await this.service.findAll();
+    const allStages = await this.service.findAll();
+
+    return allStages;
   }
 
   @Get(':id')
